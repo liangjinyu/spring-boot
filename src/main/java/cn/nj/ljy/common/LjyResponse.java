@@ -104,13 +104,13 @@ public class LjyResponse<T> implements Serializable {
         return JSON.toJSONString(this);
     }
 
-    public static void main(String[] args) {
-        LjyResponse<String> r = new LjyResponse<String>();
-        r.setCode("0");
-        r.setDesc("success");
-        r.setContent("aaa");
-        System.out.println(JSON.toJSONString(r));
-
-    }
+//    public static void main(String[] args) {
+//        LjyResponse<String> r = new LjyResponse<String>();
+//        r.setCode("0");
+//        r.setDesc("success");
+//        r.setContent("aaa");
+//        System.out.println(JSON.toJSONString(r));
+//
+//    }
 
 }

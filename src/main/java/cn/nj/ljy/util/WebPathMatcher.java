@@ -166,31 +166,31 @@ public class WebPathMatcher {
         return true;
     }
 
-    public static void main(String[] args) {
-        System.out.println(matches("/*/index.html", "/user/index.html"));
-        System.out.println(matches("*/index.html", "/user/index.html"));
-        System.out.println(matches("/*/index.html", "/user/index.html"));
-        System.out.println(matches("/user/*/index.html", "/user/api/index.html"));
-        System.out.println(matches("/user/*", "/user/index.html"));
-        System.out.println(matches("/user*/index.html", "/user/index.html"));
-        System.out.println(matches("/user*/index.html", "/user/api/index.html"));
-        System.out.println(matches("/user/*index.html", "/user/index.html"));
-        System.out.println(matches("/user/*index.html", "/user/api/index.html"));
-        System.out.println("*********以上为true 1 ***********");
-
-        System.out.println(matches("http://www.memedai.cn/*", "http://www.memedai.cn/query.do"));
-        System.out.println(matches("http://www.memedai.cn*", "http://www.memedai.cn.org/query.do"));
-        System.out.println(matches("https://*.memedai.cn/api*", "https://vip.1.memedai.cn/api/handle.do"));
-        System.out.println(matches("https://*.memedai.cn/api*", "https://abc.def.memedai.cn/api/test/handle.do"));
-        System.out.println(matches("https://*.memedai.cn/api/*", "https://vip.memedai.cn/api/handle.do"));
-        System.out.println(matches("https://*.memedai.cn/verify/*/", "https://vip.memedai.cn/verify/api/handle.do"));
-
-        System.out.println("*********以上为true 2 ***********");
-
-        System.out.println(matches("/user/*/index.html", "/user/index.html")); // false
-        System.out.println(matches("/user/*/index.html", "/index.html"));
-        System.out.println(matches("/user/*/index.html", "/u/index.html"));
-        System.out.println(matches("https://*.memedai.cn/api/*/", "https://vip.memedai.cn/api/handle.do"));
-        System.out.println(matches("https://*.memedai.cn/api/*/", "https://vip.memedai.cn/api"));
-    }
+//    public static void main(String[] args) {
+//        System.out.println(matches("/*/index.html", "/user/index.html"));
+//        System.out.println(matches("*/index.html", "/user/index.html"));
+//        System.out.println(matches("/*/index.html", "/user/index.html"));
+//        System.out.println(matches("/user/*/index.html", "/user/api/index.html"));
+//        System.out.println(matches("/user/*", "/user/index.html"));
+//        System.out.println(matches("/user*/index.html", "/user/index.html"));
+//        System.out.println(matches("/user*/index.html", "/user/api/index.html"));
+//        System.out.println(matches("/user/*index.html", "/user/index.html"));
+//        System.out.println(matches("/user/*index.html", "/user/api/index.html"));
+//        System.out.println("*********以上为true 1 ***********");
+//
+//        System.out.println(matches("http://www.memedai.cn/*", "http://www.memedai.cn/query.do"));
+//        System.out.println(matches("http://www.memedai.cn*", "http://www.memedai.cn.org/query.do"));
+//        System.out.println(matches("https://*.memedai.cn/api*", "https://vip.1.memedai.cn/api/handle.do"));
+//        System.out.println(matches("https://*.memedai.cn/api*", "https://abc.def.memedai.cn/api/test/handle.do"));
+//        System.out.println(matches("https://*.memedai.cn/api/*", "https://vip.memedai.cn/api/handle.do"));
+//        System.out.println(matches("https://*.memedai.cn/verify/*/", "https://vip.memedai.cn/verify/api/handle.do"));
+//
+//        System.out.println("*********以上为true 2 ***********");
+//
+//        System.out.println(matches("/user/*/index.html", "/user/index.html")); // false
+//        System.out.println(matches("/user/*/index.html", "/index.html"));
+//        System.out.println(matches("/user/*/index.html", "/u/index.html"));
+//        System.out.println(matches("https://*.memedai.cn/api/*/", "https://vip.memedai.cn/api/handle.do"));
+//        System.out.println(matches("https://*.memedai.cn/api/*/", "https://vip.memedai.cn/api"));
+//    }
 }

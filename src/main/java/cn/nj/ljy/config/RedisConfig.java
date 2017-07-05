@@ -28,37 +28,34 @@ public class RedisConfig {
 
     
     
-    public static void main(String[] args) {
-        
-                
-        
-        JedisPoolConfig config = new JedisPoolConfig();
-        config.setMaxIdle(15);
-        config.setMinIdle(10);
-        config.setMaxWaitMillis(30000);
-        config.setMaxTotal(20);
-        config.setTestOnBorrow(true);
-        config.setTestOnReturn(true);
-        
-//        JedisPool pool = new JedisPool(config, "99.48.66.13", 6379, 1000, "1qaz@WSX");
-        JedisPool pool = new JedisPool(config, "127.0.0.1", 6379, 1000);
-        Jedis jedis = null;
-        
-        try {
-            if (pool != null) {
-                jedis = pool.getResource();
-                jedis.select(0);
-            }
-        } catch (Exception e) {
-            System.out.println("------ 获取redis连接出现异常 ------");
-            e.printStackTrace();
-        }
-//        jedis.set("a", "1");
-       System.out.println( jedis.get("a"));
-        
-        
-        
-    }
+//    public static void main(String[] args) {
+//        
+//        JedisPoolConfig config = new JedisPoolConfig();
+//        config.setMaxIdle(15);
+//        config.setMinIdle(10);
+//        config.setMaxWaitMillis(30000);
+//        config.setMaxTotal(20);
+//        config.setTestOnBorrow(true);
+//        config.setTestOnReturn(true);
+//        
+////        JedisPool pool = new JedisPool(config, "99.48.66.13", 6379, 1000, "1qaz@WSX");
+//        JedisPool pool = new JedisPool(config, "127.0.0.1", 6379, 1000);
+//        Jedis jedis = null;
+//        
+//        try {
+//            if (pool != null) {
+//                jedis = pool.getResource();
+//                jedis.select(0);
+//            }
+//        } catch (Exception e) {
+//            System.out.println("------ 获取redis连接出现异常 ------");
+//            e.printStackTrace();
+//        }
+////        jedis.set("a", "1");
+//       System.out.println( jedis.get("a"));
+//    }
+    
+    
     @Bean
     public JedisPoolConfig getRedisConfig() {
         JedisPoolConfig config = new JedisPoolConfig();

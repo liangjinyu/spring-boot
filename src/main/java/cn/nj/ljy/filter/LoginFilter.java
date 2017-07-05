@@ -35,6 +35,7 @@ public class LoginFilter implements Filter {
         excludesPattern.add("/test/*");
         excludesPattern.add("/login/*");
         excludesPattern.add("/logout/*");
+        excludesPattern.add("/ljy");
     }
 
     @Override

@@ -21,20 +21,20 @@ public class SolrTest {
 
     private SolrClient client;
 
-    public static void main(String[] args) {
-
-        SolrTest t = new SolrTest();
-        t.client = t.createNewSolrClient();
-         t.createDocs();
-//        t.queryDocs();
-//         t.deleteByQuery("*:*");
-        try {
-            t.client.close();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
+//    public static void main(String[] args) {
+//
+//        SolrTest t = new SolrTest();
+//        t.client = t.createNewSolrClient();
+//         t.createDocs();
+////        t.queryDocs();
+////         t.deleteByQuery("*:*");
+//        try {
+//            t.client.close();
+//        } catch (IOException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+//    }
 
     public void deleteById(String id) {
         System.out.println("======================deleteById ===================");
