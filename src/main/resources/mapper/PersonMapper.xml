@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.nj.ljy.mapper.PersonMapper">
+	<resultMap id="BaseResultMap" type="cn.nj.ljy.entity.Person">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="age" property="age" />
+	</resultMap>
+	<select id="selectList" resultMap="BaseResultMap" parameterType="cn.nj.ljy.model.vo.person.PersonQueryVO">
+		select id,name,age from person
+		<where>
+			<if test="name != null and name != ''">
+				and name like CONCAT('%', #{name}, '%') 
+			</if>
+			<if test="age != 0">
+				and age = #{age }
+			</if>
+		</where>
+		limit ${(currentPage-1)*pageNum},${pageNum} 
+	</select>
+
+	<select id="selectCount" resultType="java.lang.Integer" parameterType="cn.nj.ljy.model.vo.person.PersonQueryVO">
+		select count(1) from person 
+				<where>
+			<if test="name != null and name != ''">
+				and name like CONCAT('%', #{name}, '%') 
+			</if>
+			<if test="age != 0">
+				and age = #{age }
+			</if>
+		</where>
+	</select>
+
+
+	<insert id="insert" parameterType="cn.nj.ljy.entity.Person">
+		insert into person(name,age)
+		values
+		(
+		#{name},#{age})
+	</insert>
+
+
+</mapper>

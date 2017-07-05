@@ -1,0 +1,33 @@
+<html>
+<body>
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+function display_mock()
+{
+ $.ajax({
+          // url       : "http://rap.taobao.org/mockjs/13268/test?aaa=11",    //请求的url地址
+          //  url        : "http://rap.taobao.org/mockjs/13268/app/getOrderByAlliesCode?alliesCode=asdf",    //请求的url地址
+          //  url        : "http://mockjs",    //请求的url地址
+		  
+		    url : "http://localhost:8080/test/hello",
+		    
+            dataType   : "text",   //返回格式为json
+            async      : true, //请求是否异步，默认为异步，这也是ajax重要特性
+            data       : {},    //参数值
+            type       : "GET",   //请求方式
+        
+            success: function(req) {
+                alert(req);
+	        },
+            error: function() {
+                alert("error");
+            }
+        });
+}
+</script>
+
+<input type="button" onclick="display_mock()" value="mock" />
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>person</title>
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="../resources/js/person/person.js"></script>
+<script type="text/javascript" src="../resources/layer/layer.js"></script>
+<script type="text/javascript" src="../resources/js/lib/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../resources/js/jquery.form.js" charset="utf-8"></script>
+</head>
+
+<body>
+
+<!-- 	<div id="main_frame">
+
+		   <p id="image_logo">main</p>  
+
+		<form method="post">
+			<p>
+				<label class="label_input">姓名：</label><input type="text"
+					id="personName" class="text_field" />
+			</p>
+			<p>
+				<label class="label_input">年龄：</label><input type="text"
+					id="personAge" class="text_field" />
+			</p>
+			<div id="login_control">
+				<input type="button" id="add" value="新建"
+					onclick="addPerson();" />
+					 <input type="button" id="query"
+					value="查询" onclick="selectPerson();" />
+			</div>
+		</form>
+
+
+	</div> -->
+	
+	<div class="detailsWrap" style="height:auto;">
+		<div class="detailsWrapInner">
+		<div class="detailsTitles">
+				<div class="detailsTitlesTitle">
+					查询用户
+				</div>
+			</div>
+			<div class="detailsItemOutWrap detailSectionTop">
+				<div class="detailsItemInnerRop">
+					<div class="detailsItemPDivPop">
+						姓名:
+					</div>
+					<div class="detailsItemInputDiv">
+						<input id="personName" />
+				    </div>
+				</div>
+				   <div class="detailsItemInnerRop">
+					<div class="detailsItemPDivPop">
+						年龄:
+					</div>
+					<div class="detailsItemInputDiv">
+						<input id="personAge" />
+				    </div>
+			    </div>
+			</div>
+			<div class="detailsItemOutWrap detailSectionTop">
+			
+			</div>
+		   <div class="detailsItemOutWrap detailSectionTop">
+					<input class="detailsItemInput listButton" style="width:150px;height: 38px; margin-left:30%;" type="button" id="addButton" value="新建" />
+					<input class="detailsItemInput listButton" style="width:150px;height: 38px; margin-left: 30px; " type="button" id="queryButton" value="查询" />
+		  </div>	   						
+		</div>
+	</div>
+	<div class="listWrap">
+		<div class="detailsTitles">
+			<div class="detailsTitlesTitle">
+				用户列表
+			</div>
+		</div>
+		<table id="userTable" class="display dataTablesAudit" style="border-bottom: 1px solid #EFEFEF !important;" cellspacing="0" width="100%">
+			<thead>
+			<tr>
+				<th>序号</th>
+				<th>姓名</th>
+				<th>年龄</th>
+			</tr>
+			</thead>
+		</table>
+	</div>
+	
+	
+	
+
+</body>
+</html>
