@@ -137,8 +137,8 @@ public class WebPathMatcher {
             return false;
         }
 
-        if (!requestURI.startsWith("/")) {
-            requestURI = "/" + requestURI;
+        if (!requestURI.startsWith(SLASH)) {
+            requestURI = SLASH + requestURI;
         }
 
         for (String pattern : patterns) {

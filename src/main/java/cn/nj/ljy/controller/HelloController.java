@@ -24,9 +24,9 @@ public class HelloController {
 
     @RequestMapping("/hello")
     @ResponseBody
-    String home() {
+    String hello() {
 
-        LOGGER.info("method hello executed");
+        LOGGER.info("method hello executed ");
         return "Hello ,spring boot! dataSourceUrl = " + dataSourceUrl + " ,  " + messageProducer.toString();
     }
 

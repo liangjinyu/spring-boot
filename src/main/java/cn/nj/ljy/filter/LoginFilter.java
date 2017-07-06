@@ -26,7 +26,7 @@ import cn.nj.ljy.util.WebPathMatcher;
 @WebFilter(filterName = "BaseFilter", urlPatterns = "/*")
 public class LoginFilter implements Filter {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TestFilter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginFilter.class);
     public static final String DEFAULT_STATIC_RESOURCES = "default-static";
     private Set<String> excludesPattern = new HashSet<String>();
 
@@ -36,6 +36,7 @@ public class LoginFilter implements Filter {
         excludesPattern.add("/login/*");
         excludesPattern.add("/logout/*");
         excludesPattern.add("/ljy");
+        excludesPattern.add("/yx");
     }
 
     @Override
