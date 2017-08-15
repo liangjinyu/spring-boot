@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./resources/img/dahuanglian_xieyan.jpg">
+    <title>LJY BOOTSTRAP</title>
+    <!-- Bootstrap core CSS -->
+    <link href="./resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="./resources/bootstrap/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <link href="./resources/css/index.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://liangjinyu.github.io/pages/ljy/index.html">BootStrap Study</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="https://www.baidu.com/">Baidu</a></li>
+          <!--   <li><a href="carousel.html">全新页面轮播图</a></li> -->
+            <li><a id = "carouseInPage" class="lunbo">轮播图</a></li>
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+
+
+<!-- 100%宽度 使用container-fluid-->
+    <!--<div class="container-fluid"> -->
+     <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9" id="centerMain">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          <div id="home-jumbotron" class="jumbotron">
+            <h1>克念作圣 景行维贤</h1>
+            <p>宝宝的图片着这里啊在这里</p>
+    <!--         <p>业务介绍-承接哪些业务。工厂介绍-机器，人员，能力。产品介绍-钢材，木材...。合作案例-大单介绍。联系我们-联系方式。分享文章-选材心得，装修经验，风格介绍.</p> -->
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-lg-4">
+              <h3>太阳城0723</h3>
+              <img src = "./resources/img/baby/jingxing_taiyangcheng_20170723.jpg" class="img-responsive center-block img-circle" />
+              <p>这是一张宝宝本地图片，可以添加链接</p>
+            </div><!--/.col-xs-6.col-lg-4-->
+             <div class="col-xs-6 col-lg-4">
+              <h3>标题</h3>
+              <p>这是一篇文章介绍，可能是中文，也可能是英文。具体内容是什么的，想怎么写就怎么写。呵呵呵。。。多写一点：人之初，性本善，性相近，习相远。。。blala blala.  now or never,do your best,just do it! </p>
+              <p><a class="btn btn-default" href="#" role="button">详细信息 &raquo;</a></p>
+            </div><!--/.col-xs-6.col-lg-4-->
+            <div class="col-xs-12 col-lg-4">
+              <h3>球场</h3>
+              <video  controls="controls" class="img-responsive center-block">
+                 <source src="./resources/video/jingxing_luoyang_caochang.mp4" type="video/mp4" preload="none">
+              </video>
+               <p>这是一个本地视频，可以添加链接</p>
+            </div><!--/.col-xs-6.col-lg-4-->
+           <!--  <div class="col-xs-12 col-lg-4">
+              <h3>优酷</h3>
+              <embed src='https://player.youku.com/player.php/Type/Folder/Fid//Ob//sid/XMjk0OTkzMjE4OA==/v.swf' class="img-responsive center-block" allowScriptAccess='always' allowFullScreen='true' mode='transparent' type='application/x-shockwave-flash'></embed>  
+              <p>这是一个优酷视频链接，有广告</p>
+            </div> --><!--/.col-xs-6.col-lg-4-->
+            <div class="col-xs-6 col-lg-4">
+                <h3>OSS</h3>
+                <img src = "https://mime-public-nonpro.oss-cn-shanghai.aliyuncs.com/4400_SB966B91-T73NEQ4CR1CS81PSPMT82-9CTWCT5J-0.jpg" class="img-responsive center-block" />
+                <p>这是一个保存在oss的图片</p>
+            </div><!--/.col-xs-6.col-lg-4-->
+            <div class="col-xs-6 col-lg-4">
+              <h3>Heading</h3>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div><!--/.col-xs-6.col-lg-4-->
+          </div><!--/row-->
+        </div><!--/.col-xs-12.col-sm-9-->
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+          <div class="list-group">
+            <a id = "sidebar_baidu" href="https://www.baidu.com/" class="list-group-item sidebar-link">Baidu</a>
+            <a id = "sidebar_lunbo" class="list-group-item lunbo sidebar-link">轮播图</a>
+            <a id = "sidebar_link1" href="#" class="list-group-item sidebar-link">Link1</a>
+            <a id = "sidebar_link2" href="#" class="list-group-item sidebar-link">Link2</a>
+            <a id = "sidebar_link3" href="#" class="list-group-item sidebar-link">Link3</a>
+          </div>
+        </div> <!--/.sidebar-offcanvas-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; 2016 Company, Inc.</p>
+      </footer>
+
+    </div><!--/.container-->
+
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="./resources/jquery/js/jquery-3.2.1.min.js"></script>')</script>-->
+
+       <script src="./resources/jquery/js/jquery-3.2.1.min.js"></script>
+    <script src="./resources/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./resources/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="./resources/js/index.js"></script>
+    <script src="./resources/bootstrap/js/holder.min.js"></script>
+  </body>
+</html>
