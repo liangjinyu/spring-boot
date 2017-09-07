@@ -1,5 +1,8 @@
 package cn.nj.ljy.controller;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,6 +12,7 @@ import java.util.UUID;
 
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.client.solrj.beans.DocumentObjectBinder;
 import org.apache.solr.client.solrj.impl.CloudSolrClient;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.client.solrj.request.UpdateRequest;
@@ -18,6 +22,8 @@ import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 import org.apache.solr.common.SolrInputDocument;
 
+import cn.nj.ljy.model.vo.SolrDocMerchandiseModel;
+
 public class SolrTest {
 
     private SolrClient client;
@@ -26,9 +32,10 @@ public class SolrTest {
 
         SolrTest t = new SolrTest();
         t.client = t.createNewSolrClient();
-//        t.createDocs();
-         t.queryDocs();
+        t.createDocs();
+//         t.queryDocs();
 //         t.deleteByQuery("*:*");
+//        t.updateDocs();
         try {
             t.client.close();
             System.out.println("done");
@@ -36,6 +43,31 @@ public class SolrTest {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
+
+    private void updateDocs() {
+        try {
+            
+            Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
+            SolrInputDocument doc1 = new SolrInputDocument();
+            doc1.addField("id","b1edfb25-81a7-4841-9250-8d9451691b77");
+            doc1.addField("name", "商品名称");
+            doc1.addField("description", "商品描述信息");
+            doc1.addField("price", getRandomInt());
+            doc1.addField("inventory", getRandomInt());
+            docs.add(doc1);
+            UpdateResponse rsp = client.add(docs);
+            System.out
+                    .println("Add doc size" + docs.size() + " result:" + rsp.getStatus() + " Qtime:" + rsp.getQTime());
+
+            UpdateResponse rspcommit = client.commit();
+            System.out.println("commit doc to index" + " result:" + rsp.getStatus() + " Qtime:" + rsp.getQTime());
+
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
     }
 
     public void deleteById(String id) {
@@ -73,26 +105,32 @@ public class SolrTest {
 
     public void queryDocs() {
         SolrQuery params = new SolrQuery();
+        long begin = System.currentTimeMillis();
         System.out.println("======================query===================");
 
-        params.set("q", "name:\"王大兵\"");
+        params.set("q", "name:*");
         params.set("start", 0);
-        params.set("rows", 5);
-        params.set("sort", "age_i asc");
-
+        params.set("rows", 10);
+        params.set("sort", "price asc");
+        params.set("facet", "on");
+        params.set("facet.field", "inventory");
         try {
             QueryResponse rsp = client.query(params);
             SolrDocumentList docs = rsp.getResults();
+            
             System.out.println("查询内容:" + params);
             System.out.println("文档数量：" + docs.getNumFound());
             System.out.println("查询花费时间:" + rsp.getQTime());
-
             System.out.println("------query data:------");
             for (SolrDocument doc : docs) {
 
-                System.out.println(doc);
+                
+                DocumentObjectBinder binder = new DocumentObjectBinder();
+                SolrDocMerchandiseModel model =  binder.getBean(SolrDocMerchandiseModel.class, doc);
+                System.out.println(model);
             }
-            System.out.println("-----------------------");
+            long time = System.currentTimeMillis()-begin;
+            System.out.println("----------------------- time ="+time);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -123,58 +161,53 @@ public class SolrTest {
         System.out.println("======================add doc ===================");
         Collection<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
 
-        SolrInputDocument doc1 = new SolrInputDocument();
-        doc1.addField("id", UUID.randomUUID().toString());
-        doc1.addField("name", "王大兵");
-        doc1.addField("description", "王大兵是家里的老大，外号大兵，哈哈哈");
-        doc1.addField("age_i", 30);
-        docs.add(doc1);
+         for (int i = 1; i <= 100; i++) {
+         SolrInputDocument doc1 = new SolrInputDocument();
+         doc1.addField("id", UUID.randomUUID().toString());
+         doc1.addField("name", "name" + i);
+         doc1.addField("description", getRandomString(10));
+         doc1.addField("price", getRandomInt());
+         doc1.addField("inventory", getRandomInt());
+         docs.add(doc1);
+         }
 
-        SolrInputDocument doc2 = new SolrInputDocument();
-        doc2.addField("id", UUID.randomUUID().toString());
-        doc2.addField("name", "王小兵");
-        doc2.addField("description", "王小兵是家里的老幺，外号小兵，啊啊啊");
-        doc2.addField("age_i", 30);
-        docs.add(doc2);
+        File file = new File("C:\\Users\\liangjy\\Desktop\\merchandiseInfo.csv");
+        BufferedReader reader = null;
+        try {
+            System.out.println("以行为单位读取文件内容，一次读一整行：");
+            reader = new BufferedReader(new FileReader(file));
+            String tempString = null;
+            int line = 1;
+            // 一次读入一行，直到读入null为文件结束
+            while ((tempString = reader.readLine()) != null) {
+                // 显示行号
+                String[] infos = tempString.split(",\\$\\$\\$,");
+                if (infos.length == 2) {
+                    SolrInputDocument doc1 = new SolrInputDocument();
+                    doc1.addField("id", UUID.randomUUID().toString());
+                    doc1.addField("name", infos[0]);
+                    doc1.addField("description", infos[1]);
+                    doc1.addField("price", getRandomInt());
+                    doc1.addField("inventory", getRandomInt());
+                    docs.add(doc1);
+                } else {
+                    System.out.println(tempString);
+                }
 
-        SolrInputDocument doc3 = new SolrInputDocument();
-        doc3.addField("id", UUID.randomUUID().toString());
-        doc3.addField("name", "王兵");
-        doc3.addField("description", "王兵和大兵，小兵不认识，啦啦啦啊啊啊");
-        doc3.addField("age_i", 30);
-        docs.add(doc3);
+                line++;
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e1) {
+                }
+            }
+        }
 
-        SolrInputDocument doc4 = new SolrInputDocument();
-        doc4.addField("id", UUID.randomUUID().toString());
-        doc4.addField("name", "么么么兽");
-        doc4.addField("description", "我是米么的么么兽，阿萨德了放款件阿斯顿发生地方阿萨德发");
-        doc4.addField("age_i", 30);
-        docs.add(doc4);
-
-        SolrInputDocument doc5 = new SolrInputDocument();
-        doc5.addField("id", UUID.randomUUID().toString());
-        doc5.addField("name", "jack jj good");
-        doc5.addField("description", "aaa bbb  ccc good boy");
-        doc5.addField("age_i", 30);
-        docs.add(doc5);
-
-        SolrInputDocument doc6 = new SolrInputDocument();
-        doc6.addField("id", UUID.randomUUID().toString());
-        doc6.addField("name", "rose mm bad");
-        doc6.addField("description", "aaa bbb  ccc bad girl");
-        doc6.addField("age_i", 30);
-        docs.add(doc6);
-
-        //
-        // for (int i = 1; i <= 100; i++) {
-        // SolrInputDocument doc1 = new SolrInputDocument();
-        // doc1.addField("id", UUID.randomUUID().toString());
-        // doc1.addField("name", "name" + i);
-        // doc1.addField("description", getRandomString(10));
-        // doc1.addField("age_i", getRandomInt());
-        //
-        // docs.add(doc1);
-        // }
         try {
             UpdateResponse rsp = client.add(docs);
             System.out
@@ -206,4 +239,5 @@ public class SolrTest {
         }
         return sb.toString();
     }
+
 }
