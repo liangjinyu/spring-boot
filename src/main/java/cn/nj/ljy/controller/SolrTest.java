@@ -28,22 +28,22 @@ public class SolrTest {
 
     private SolrClient client;
 
-    public static void main(String[] args) {
-
-        SolrTest t = new SolrTest();
-        t.client = t.createNewSolrClient();
-        t.createDocs();
-//         t.queryDocs();
-//         t.deleteByQuery("*:*");
-//        t.updateDocs();
-        try {
-            t.client.close();
-            System.out.println("done");
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
+//    public static void main(String[] args) {
+//
+//        SolrTest t = new SolrTest();
+//        t.client = t.createNewSolrClient();
+//        t.createDocs();
+////         t.queryDocs();
+////         t.deleteByQuery("*:*");
+////        t.updateDocs();
+//        try {
+//            t.client.close();
+//            System.out.println("done");
+//        } catch (IOException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+//    }
 
     private void updateDocs() {
         try {

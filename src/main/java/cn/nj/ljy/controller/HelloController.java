@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.nj.ljy.entity.Person;
 import cn.nj.ljy.third.MessageProducer;
 
 @Controller
@@ -28,6 +29,13 @@ public class HelloController {
 
         LOGGER.info("method hello executed ");
         return "Hello ,spring boot! dataSourceUrl = " + dataSourceUrl + " ,  " + messageProducer.toString();
+    }
+    
+    @RequestMapping("/person")
+    @ResponseBody
+    private Person person() {
+
+        return new Person(11,"jack",11);
     }
 
     // public static void main(String[] args) throws Exception {
