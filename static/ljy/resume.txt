@@ -1,0 +1,60 @@
+
+
+
+java/spring MVC/spring boot/JMS/EJB/JUnit/JMockit
+
+mysql/sqlserver/oracle/mybatis/mongodb/redis
+
+html/css/js/jquery/smartclient/bootstrap/java swing
+
+zookeeper/dubbo/Spring cloud 
+
+eclipse/git/svn/maven/linux
+
+MicroServices/Scrum/Jira/Rap
+
+disconf/sso/elk/cat/ElasticJob/RocketMQ/oss
+
+solr cloud/Python
+
+------------------
+
+项目：
+商户平台、商品中心、商城
+
+南向设备协议，配置管理，界面
+EasyGateway N31
+EasyGateway V5.0
+
+
+
+
+
+
+ <!-- 岗位职责：
+1. 深入发掘业务需求为软件开发提供架构设计；
+2. 主持和参与系统逻辑模型和物理模型设计并实现原型；
+3. 开发和维护统一的软件开发架构，发现和解决存在的技术问题；
+4. 从事核心架构部分代码的编写、指导和培训工程师。
+任职要求：
+1. 本科或以上学历，计算机软件或相关专业；
+2. 7年以上大型互联网电子商务系统或者其他大型企业应用系统开发相关经验；
+3. 精通Java EE相关技术和框架（包括Java语言基础/多线程/SpringMVC/Remoting/myBatis/Cache/Messaging/Workflow等）；
+4. 熟悉MySQL、Oracle或DB2等主流数据库系统的设计原理、相关技术及工具；
+5. 精通面向对象分析设计方法，逻辑能力佳，具有丰富的SOA及UML建模经验，熟悉软件工程、编程规范、有过程控制意识；
+6. 必须在以下技术领域有一项或多项经验
+A: 大型分布式系统，高并发，高负载，高可用性系统
+B:多数据源访问的性能及负载经验
+C:高性能缓存和高并发经验
+D:平台的实时性和稳定性经验
+E:应用系统开发安全，内容过滤，作弊检测,监控等经验
+F:分布式存储经验；
+7. 对技术发展趋势有非常高的敏感性和预测能力，并能制定技术创新方向,专注于技术，精益求精；
+8. 有大型B2C电商系统架构经验者优先，如淘宝、天猫、美团、京东或当当。
+                 -->
+
+  
+
+
+
+

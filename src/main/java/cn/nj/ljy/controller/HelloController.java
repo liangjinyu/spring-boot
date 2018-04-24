@@ -31,10 +31,18 @@ public class HelloController {
         return "Hello ,spring boot! dataSourceUrl = " + dataSourceUrl + " ,  " + messageProducer.toString();
     }
     
+    @RequestMapping("/error")
+    @ResponseBody
+    private Person error() {
+
+    	    String s = null;
+    	    s.split("s");
+        return new Person(11,"jack",11);
+    }
+    
     @RequestMapping("/person")
     @ResponseBody
     private Person person() {
-
         return new Person(11,"jack",11);
     }
 

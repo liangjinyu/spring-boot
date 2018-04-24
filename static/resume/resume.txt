@@ -1,0 +1,56 @@
+
+基本信息：
+梁金雨 
+南京
+1985 男
+15366177385
+
+liangjinyu0321@163.com
+https://github.com/liangjinyu
+微信：liangjinyu0321  二维码展示
+
+7+年工作经验  根据当前时间计算
+5+通讯行业
+2+互联网行业经验
+
+
+教育经历:
+研究生
+大学
+
+英语：
+CET-6
+
+工作经历：
+中兴
+当前
+
+
+编程：
+java 
+spring mvc/spring boot
+mysql/sqlserver/oracle
+mongodb
+redis
+
+
+solr cloud
+python
+
+
+工具：
+eclipse git/svn 
+
+项目：
+商户平台、商品中心、商城
+
+南向设备协议，配置管理，界面
+EasyGateway N31
+EasyGateway V5.0
+
+
+  
+
+
+
+
